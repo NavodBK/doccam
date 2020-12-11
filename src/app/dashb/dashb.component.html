@@ -1,0 +1,23 @@
+<div id="dashBody">
+    <div id="videoDiv">
+        <div>
+            <!-- [src] = "myStream" --> 
+            <video #myvideo [src]="rStream" autoplay></video>
+ 
+        </div>
+        <div *ngIf="!readyStat" class="buttonBar">
+            <button  class="vidControll" (click)="ready(myvideo)">Ready</button>
+        </div>
+        <div *ngIf="readyStat" class="buttonBar">
+            
+            <button  class="vidControll" (click)="disconnect()">Disconnect</button>
+            <button  class="vidControll" (click)="callActive(myvideo)">Connect</button>
+            
+        </div>
+    </div>
+    <div id="stat" style="background-color: rgb(13, 13, 14);">
+        <div id="hbMonitor"> <app-temp></app-temp></div>
+        <div id="temp"><app-heartbeat></app-heartbeat></div>
+        <input type="text" [(ngModel)]="rPeerId" >
+    </div>
+</div>
